@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- 
+        Was getting a validation error for having the pipe symbol in the google fonts URL when trying to bring in multiple fonts.
+        Found on stack overflow that you have to use the character entity "%7c"
+        https://stackoverflow.com/questions/22466913/google-fonts-url-break-html5-validation-on-w3-org
+        credit: steveax
+     -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Junge%7CPetrona">
+
+    
+    <title>True False Questions</title>
+</head>
+<body>
+    <header>
+        <h1>Questions</h1>
+    </header>
+   
+<main>
+    
+    <div class="question-container">
+        <ul>
+            <li>
+                <div class="incorrectAnswer">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="17" viewBox="0 0 23 17">
+                        <image x="4" y="4" width="12" height="12" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAiklEQVQYlU2PMQrCUBBEn3YBBRsvECU3MBcRYmUlXshCsLCwyiECHiNFwEKwsrafMGY//IWBmbe7/7MI1oK7YClwtvaCq2Dm0AkkeEVzG9k6GWwE7wCD4Be+FSzSk1afbd4SnzPVDliFd1VA8XeCc7Z5ETzDfwW1Bx4BfEn67hOsSeCYNa1ScBAwAktrUxIChcZ8AAAAAElFTkSuQmCC"/>
+                      </svg>                    
+                </div>
+                <label class="question-label" for='q1true'>True</label>
+                <input type='checkbox' class='checkbox' id='q1true' name='q1true' onclick="incorrectAnswer()">
+
+            </li>
+            <li>
+                <div class="correctAnswer">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="23" viewBox="0 0 20 23">
+                        <image width="20" height="23" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAABQ0lEQVQ4ja3UPUsdURDG8Z8iYqcIYiNc7C1DYiOxsdEqCioqKdKGCMEq1lELCYKJqN9AEBHUJilCCFZ+g5Q2BollfDcgB86GZVHvvtynmTnPDP/dw85sU21/SINUQ3tzg2DjmMZpSwNgn9CHGfypCtxDP3pxHowqwB94iTZcJ2ZZ4E8MoCsNCyrzUb5F2AucZYtFgVsIczaLo4caigAXMYGv+PxYU17gKD7gFq+easwD7MZOzMPwXlYFHsR4iO16zfWAb/Es5jM5Hv4f2IlVNKVqHfgS800cFwGu4B2+p2rrMd5hLg8sAb7B63gexDBaMRm9pWRP8yis3kimL1zvJOZhrT7mhSVvOIb5lNeD5zFfxk1RYHKt3UztX/QLKT02U3ETEm3gogrwCu9T54WisCwwaC3GX/hdBvjQDzaM0N8yMLgHMCIznWfOGBIAAAAASUVORK5CYII="/>
+                      </svg>                      
+                </div>
+                <label class="question-label" for='q1true'>False</label>
+                <input type='checkbox' class='checkbox' id='q1false' name='q1false' onclick="correctAnswer()">
+            </li>
+        </ul>
+        <ul>
+            <li><a href="#">Is the sky green ?</a></li>
+        </ul>
+        
+    </div>
+    <div class="message-container">
+        Unfortunately, that is not correct, the sky is blue.
+    </div>
+</main>
+
+<script>
+
+function correctAnswer() {
+ // Get the checkbox
+ var checkBox = document.getElementById("q1false");
+  
+   var tick = document.querySelector(".correctAnswer");
+  
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+     
+      tick.style.display = "inline";
+      
+    } else {
+      tick.style.display = "none";
+    }
+
+    var checkbox = document.querySelectorAll(".checkbox");
+    for (let i = 0; i < checkbox.length; i++) {
+        checkbox[i].disabled = true;
+    }
+}
+
+function incorrectAnswer() {
+    // Get the checkbox
+    var checkBox = document.getElementById("q1true");
+    // Get the output text
+    var text = document.querySelector(".message-container");
+
+   var cross = document.querySelector(".incorrectAnswer");
+  
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      text.style.display = "flex";
+      cross.style.display = "inline";
+      
+    } else {
+      text.style.display = "none";
+      cross.style.display = "none";
+    }
+
+    var checkbox = document.querySelectorAll(".checkbox");
+    for (let i = 0; i < checkbox.length; i++) {
+        checkbox[i].disabled = true;
+    }
+  }
+</script>       
+</body>
+</html>

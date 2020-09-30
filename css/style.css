@@ -1,0 +1,66 @@
+body {
+    font-family: 'Petrona', sans-serif;
+     box-sizing: border-box; 
+}
+
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #52504f;
+}
+
+header {
+    width: 100%;
+  
+}
+
+h1 {
+    text-align: center;
+
+}
+
+body {
+    background-color: lightgoldenrodyellow;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    width: 100vw;
+    height: 20vh;
+}
+
+.question-container {
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-label {
+    display: inline-block;
+    text-align: left;
+    min-width: 50px;
+}
+
+.incorrectAnswer, .correctAnswer {
+    display: none;
+
+}
+
+.message-container{
+    display:none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: lightskyblue;
+}
+
